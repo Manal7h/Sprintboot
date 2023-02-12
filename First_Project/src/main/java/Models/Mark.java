@@ -1,9 +1,6 @@
 package Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity // it will say that this is a table in database
 public class Mark {
@@ -14,6 +11,13 @@ public class Mark {
     Integer id;
     Integer obtainMark;
     String grade;
+
+
+
+    @ManyToOne // many mark to one course
+    @JoinColumn(name = "course_id" , referencedColumnName = "id") //defining the foreign key
+    Course course;
+
 
     public Integer getId() {
         return id;

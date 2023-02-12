@@ -13,8 +13,11 @@ public class Student {
     @Column(name = "Student_name") // change the column name
     String name;
 
-
     String rollNumber;
+
+    @ManyToOne // many student to one school
+    @JoinColumn(name = "school_id" , referencedColumnName = "id") //defining the foreign key
+    School school;
 
     public Integer getId() {
         return id;

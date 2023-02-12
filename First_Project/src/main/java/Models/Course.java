@@ -15,6 +15,13 @@ public class Course {
     @Column(name = "Student_name") // change the column name
     String name;
 
+    @ManyToOne // many course to one student
+            @JoinColumn(name = "student_id" , referencedColumnName = "id") //defining the foreign key
+    Student student;
+
+
+
+
     public Integer getId() {
         return id;
     }
