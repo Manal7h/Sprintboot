@@ -1,23 +1,24 @@
-package Models;
+package com.codeline.api1.First_Project.Models;
 
 
 import javax.persistence.*;
 
 @Entity // it will say that this is a table in database
-public class Student {
+public class Course {
+
 
     @Id // define the id as primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY) // to make the primary key auto generate
     Integer id;
 
-    @Column(name = "Student_name") // change the column name
+
+    @Column(name = "course_name") // change the column name
     String name;
 
-    String rollNumber;
+    @ManyToOne // many course to one student
+    @JoinColumn(name = "student_id", referencedColumnName = "id") //defining the foreign key
+    Student student;
 
-    @ManyToOne // many student to one school
-    @JoinColumn(name = "school_id" , referencedColumnName = "id") //defining the foreign key
-    School school;
 
     public Integer getId() {
         return id;
@@ -33,13 +34,5 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getRollNumber() {
-        return rollNumber;
-    }
-
-    public void setRollNumber(String rollNumber) {
-        this.rollNumber = rollNumber;
     }
 }

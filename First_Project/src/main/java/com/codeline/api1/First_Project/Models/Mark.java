@@ -1,4 +1,4 @@
-package Models;
+package com.codeline.api1.First_Project.Models;
 
 import javax.persistence.*;
 
