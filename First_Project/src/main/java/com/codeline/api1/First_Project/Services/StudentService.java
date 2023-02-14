@@ -2,6 +2,7 @@ package com.codeline.api1.First_Project.Services;
 
 
 import com.codeline.api1.First_Project.Models.Course;
+import com.codeline.api1.First_Project.Models.School;
 import com.codeline.api1.First_Project.Models.Student;
 import com.codeline.api1.First_Project.Repositories.StudentRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +20,11 @@ public class StudentService {
 
     public List<Student> getAllStudent() {
         return studentRepositories.getAllStudent();
+    }
+
+    public Student getStudentById(Integer id) {
+        Student student = studentRepositories.getStudentById(id); // getting the id from the user
+        return student; //creating an empty course and returning it.
+
     }
 }

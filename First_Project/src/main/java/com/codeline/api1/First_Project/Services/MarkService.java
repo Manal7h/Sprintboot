@@ -18,4 +18,11 @@ public class MarkService {
     public List<Mark> getAllMark() {
         return markRepositories.getAllMark();
     }
+
+
+    public Mark getMarksById(Integer id) {
+        Mark marks = markRepositories.getMarksById(id); // getting the id from the user
+        return marks; //creating an empty course and returning it.
+
+    }
 }

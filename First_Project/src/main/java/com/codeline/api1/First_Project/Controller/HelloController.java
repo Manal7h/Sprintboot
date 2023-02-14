@@ -19,8 +19,8 @@ import java.util.List;
 @RestController // controller speaking to the outside world (create api, connect java to the web service)
 public class HelloController {
 
-    // to link the service classes with the main controller class
-//    @Autowired // create one instance and can be used in the entire program
+// to link the service classes with the main controller class
+// @Autowired // create one instance and can be used in the entire program
 //    CourseService courseService ;
 
 //    @Autowired // create one instance and can be used in the entire program

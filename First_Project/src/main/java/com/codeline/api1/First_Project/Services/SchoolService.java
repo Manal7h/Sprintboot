@@ -1,6 +1,7 @@
 package com.codeline.api1.First_Project.Services;
 
 import com.codeline.api1.First_Project.Models.Course;
+import com.codeline.api1.First_Project.Models.Mark;
 import com.codeline.api1.First_Project.Models.School;
 import com.codeline.api1.First_Project.Repositories.SchoolRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,5 +19,11 @@ public class SchoolService {
     public List<School> getAllSchool() {
 
         return schoolRepositories.getAllSchool();
+    }
+
+    public School getSchoolById(Integer id) {
+        School school = schoolRepositories.getSchoolById(id); // getting the id from the user
+        return school; //creating an empty course and returning it.
+
     }
 }
