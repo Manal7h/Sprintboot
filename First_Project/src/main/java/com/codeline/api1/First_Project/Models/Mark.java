@@ -1,9 +1,12 @@
 package com.codeline.api1.First_Project.Models;
 
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
 
+
 @Entity // it will say that this is a table in database
-public class Mark {
+public class Mark extends BaseEnity{
 
 
     @Id // define the id as primary key

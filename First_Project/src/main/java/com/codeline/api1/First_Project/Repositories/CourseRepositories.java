@@ -4,6 +4,7 @@ import com.codeline.api1.First_Project.Models.Course;
 import com.codeline.api1.First_Project.Models.Mark;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,5 +17,6 @@ public interface CourseRepositories extends CrudRepository<Course,Integer> {
     //m is alias which is static
     List<Course> getAllCourse(); // getting all the course from the course list
 
-
+    @Query("SELECT m from Course m where m.id= :courseId")
+    Course getCourseById(@Param("courseId") Integer id);
 }

@@ -1,10 +1,16 @@
 package com.codeline.api1.First_Project.Models;
 
 
+import lombok.Data;
+
 import javax.persistence.*;
 
+
+
+
+
 @Entity // it will say that this is a table in database
-public class School {
+public class School extends BaseEnity{
 
     @Id // define the id as primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY) // to make the primary key auto generate

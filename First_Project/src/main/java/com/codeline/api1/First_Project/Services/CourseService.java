@@ -21,8 +21,11 @@ public class CourseService {
         return courseRepositories.getAllCourse();
     }
 
+    public Course getCourseById(Integer id) {
+        Course courses = courseRepositories.getCourseById(id); // getting the id from the user
+        return courses; //creating an empty course and returning it.
 
-
+    }
 
 
 

@@ -1,10 +1,14 @@
 package com.codeline.api1.First_Project.Models;
 
 
+import lombok.Data;
+import org.springframework.data.annotation.LastModifiedDate;
+
 import javax.persistence.*;
 
-@Entity // it will say that this is a table in database
-public class Course {
+
+@Entity // it will say : this is a table in database
+public class Course extends BaseEnity{
 
 
     @Id // define the id as primary key
