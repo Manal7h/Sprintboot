@@ -59,4 +59,10 @@ public class SchoolController {
         List<School> activeSchoolList = schoolService.getAllActiveSchool();
         return activeSchoolList;
     }
+
+    @RequestMapping(value =  "/getSchoolLatestRow")
+    public  List<School> getSchoolLatestRow() {
+        List<School> schoolLatestRow = schoolService.getSchoolLatestRow();
+        return schoolLatestRow;
+    }
 }

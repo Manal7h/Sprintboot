@@ -27,4 +27,7 @@ public interface SchoolRepositories extends CrudRepository<School,Integer> {
 
     @Query(value = "SELECT s from School s where s.isActive= :true")
     List<School> getAllActiveSchool();
+
+    @Query(value = "SELECT s from School s where s.id= (SELECT MAX(s.id) FROM School s)")
+    List<School> getSchoolLatestRow();
 }
