@@ -1,5 +1,6 @@
 package com.codeline.api1.First_Project.Controller;
 
+import com.codeline.api1.First_Project.Models.Course;
 import com.codeline.api1.First_Project.Models.School;
 import com.codeline.api1.First_Project.Models.Student;
 import com.codeline.api1.First_Project.Services.StudentService;
@@ -8,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
 
 @RestController
@@ -30,5 +30,15 @@ public class StudentController {
         Student student = studentService.getStudentById(studentId);
         return student;
     }
+
+    @RequestMapping(value = "/getStudentByName" , method = RequestMethod.POST)
+    public Student getStudentByName(@RequestParam String Student_name){
+        Student student = studentService.getStudentByName(Student_name);
+        return student;
+
+    }
+
+
+
 }
 //localhost:8080/student/getById?studentId=1

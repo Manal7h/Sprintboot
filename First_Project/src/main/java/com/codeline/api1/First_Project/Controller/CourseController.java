@@ -1,6 +1,7 @@
 package com.codeline.api1.First_Project.Controller;
 
 import com.codeline.api1.First_Project.Models.Course;
+import com.codeline.api1.First_Project.Models.School;
 import com.codeline.api1.First_Project.Services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +34,13 @@ public class CourseController {
     public Course getCourseById(@RequestParam Integer courseId) {
         Course courses = courseService.getCourseById(courseId);
         return courses;
+    }
+
+    @RequestMapping(value = "/getCourseByName" , method = RequestMethod.POST)
+    public Course getCourseByName(@RequestParam String course_name){
+        Course course = courseService.getCourseByName(course_name);
+        return course;
+
     }
 
 

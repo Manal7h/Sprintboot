@@ -3,6 +3,7 @@ package com.codeline.api1.First_Project.Controller;
 
 import com.codeline.api1.First_Project.Models.Mark;
 import com.codeline.api1.First_Project.Models.School;
+import com.codeline.api1.First_Project.Request.SchoolRequestForCreateDateUpdate;
 import com.codeline.api1.First_Project.Services.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.ParseException;
 import java.util.List;
 
 @RestController
@@ -32,5 +34,29 @@ public class SchoolController {
         return school;
     }
 
+//    @RequestMapping(value = "getAllSchoolByIsActive")
+//    public List<School> getAllActiveSchool(){
+//        List<School> activeSchoolList = schoolService.getAllSchool();
+//        return activeSchoolList;
+//    }
 
+
+    @RequestMapping(value = "updateCreateDateByUserInput", method = RequestMethod.POST)
+    public void setCreateDateByUserInput(@RequestParam SchoolRequestForCreateDateUpdate data) throws ParseException{
+        schoolService.setCreateDateByUserInput(data.getDate(),data.getId());
+    }
+
+
+    @RequestMapping(value = "/getSchoolByName" , method = RequestMethod.POST)
+    public School getSchoolByName(@RequestParam String School_name){
+        School schoolName = schoolService.getSchoolByName(School_name);
+        return schoolName;
+
+    }
+
+    @RequestMapping(value =  "/getAllActiveSchool")
+    public  List<School> getAllActiveSchool() {
+        List<School> activeSchoolList = schoolService.getAllActiveSchool();
+        return activeSchoolList;
+    }
 }

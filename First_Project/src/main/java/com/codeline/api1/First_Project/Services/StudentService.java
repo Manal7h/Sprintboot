@@ -27,4 +27,12 @@ public class StudentService {
         return student; //creating an empty course and returning it.
 
     }
+
+    public Student getStudentByName(String Student_name) {
+        Student student = studentRepositories.getStudentByName(Student_name);
+        Integer studentId = student.getId();
+        student = studentRepositories.getStudentById(studentId);
+        return student;
+
+    }
 }
