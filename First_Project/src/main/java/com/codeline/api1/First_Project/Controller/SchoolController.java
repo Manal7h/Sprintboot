@@ -65,4 +65,10 @@ public class SchoolController {
         List<School> schoolLatestRow = schoolService.getSchoolLatestRow();
         return schoolLatestRow;
     }
+
+    @RequestMapping(value =  "/getSchoolLatestUpdated")
+    public  List<School> getSchoolLatestUpdated() {
+        List<School> SchoolLatestUpdated = schoolService.getSchoolLatestUpdated();
+        return SchoolLatestUpdated;
+    }
 }

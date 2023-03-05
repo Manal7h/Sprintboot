@@ -56,6 +56,10 @@ public class SchoolService {
         return  schoolRepositories.getSchoolLatestRow();
     }
 
+    public List<School> getSchoolLatestUpdated(){
+        return  schoolRepositories.getSchoolLatestUpdated();
+    }
+
 
 
 
