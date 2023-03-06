@@ -34,11 +34,19 @@ public class SchoolController {
         return school;
     }
 
-//    @RequestMapping(value = "getAllSchoolByIsActive")
-//    public List<School> getAllActiveSchool(){
-//        List<School> activeSchoolList = schoolService.getAllSchool();
-//        return activeSchoolList;
-//    }
+
+    @RequestMapping(value =  "/getAllActiveSchool")
+    public  List<School> getAllActiveSchool() {
+    List<School> activeSchoolList = schoolService.getAllActiveSchool();
+    return activeSchoolList;
+}
+
+    @RequestMapping(value =  "/getAllActiveSchool")
+    public  List<School> getAllUnActiveSchool() {
+        List<School> unActiveSchoolList = schoolService.getAllUnActiveSchool();
+        return unActiveSchoolList;
+    }
+
 
 
     @RequestMapping(value = "updateCreateDateByUserInput", method = RequestMethod.POST)
@@ -54,12 +62,6 @@ public class SchoolController {
 
     }
 
-    @RequestMapping(value =  "/getAllActiveSchool")
-    public  List<School> getAllActiveSchool() {
-        List<School> activeSchoolList = schoolService.getAllActiveSchool();
-        return activeSchoolList;
-    }
-
     @RequestMapping(value =  "/getSchoolLatestRow")
     public  List<School> getSchoolLatestRow() {
         List<School> schoolLatestRow = schoolService.getSchoolLatestRow();
@@ -71,4 +73,12 @@ public class SchoolController {
         List<School> SchoolLatestUpdated = schoolService.getSchoolLatestUpdated();
         return SchoolLatestUpdated;
     }
+
+    @RequestMapping(value = "/deleteById")
+    public void deleteById(Integer id){
+        schoolService.deleteById(id);
+    }
+
+
+
 }

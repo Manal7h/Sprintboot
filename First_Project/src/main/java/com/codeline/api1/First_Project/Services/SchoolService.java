@@ -8,6 +8,7 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.Id;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -52,6 +53,10 @@ public class SchoolService {
         return  schoolRepositories.getAllActiveSchool();
     }
 
+    public List<School> getAllUnActiveSchool(){
+        return  schoolRepositories.getAllUnActiveSchool();
+    }
+
     public List<School> getSchoolLatestRow(){
         return  schoolRepositories.getSchoolLatestRow();
     }
@@ -60,7 +65,11 @@ public class SchoolService {
         return  schoolRepositories.getSchoolLatestUpdated();
     }
 
-
+    public void deleteById(Integer id){
+        School school=schoolRepositories.getSchoolById(id);
+        school.setActive(Boolean.FALSE);
+        schoolRepositories.save(school);
+    }
 
 
 
