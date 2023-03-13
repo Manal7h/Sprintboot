@@ -81,4 +81,14 @@ public class SchoolController {
 
 
 
+    // Function that school by the User input for the Number of students (getSchoolByNumberOfStudents)
+    @RequestMapping(value = "/getSchoolByNumberOfStudent", method = RequestMethod.POST)
+    public School getSchoolByNumberOfStudent(@RequestParam Integer numberOfStudent) {
+        return (School) schoolService.getSchoolByNumberOfStudent(numberOfStudent);
+
+    }
+
+
+
+
 }

@@ -14,6 +14,8 @@ public class School extends BaseEnity{
 
     @Id // define the id as primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY) // to make the primary key auto generate
+
+
     Integer id;
 
     @Column(name = "School_name") // change the column name
