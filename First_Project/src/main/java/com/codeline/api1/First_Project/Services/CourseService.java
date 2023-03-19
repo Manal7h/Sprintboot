@@ -27,13 +27,13 @@ public class CourseService {
 
     }
 
-    public Course getCourseByName(String course_name) {
-        Course course = courseRepositories.getCourseByName(course_name);
-        Integer courseId = course.getId();
-        course = courseRepositories.getCourseById(courseId);
-        return course;
-
-    }
+//    public Course getCourseByName(String course_name) {
+//        Course course = courseRepositories.getCourseByName(course_name);
+//        Integer courseId = course.getId();
+//        course = courseRepositories.getCourseById(courseId);
+//        return course;
+//
+//    }
 
 
 }

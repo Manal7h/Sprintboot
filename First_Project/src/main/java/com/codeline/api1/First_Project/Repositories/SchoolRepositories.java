@@ -55,7 +55,7 @@ import java.util.List;
 
 
 
-
+        //get School By Number Of Student
         @Query(value = "SELECT COUNT(id) From student where schoolId = ?1", nativeQuery = true)
         Integer getCountOfStudentsBySchoolId(Integer schoolId);
 }

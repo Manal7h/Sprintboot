@@ -95,11 +95,10 @@ public class SchoolService {
         schoolRepositories.save(school);
     }
 
-
+    //get School By Number Of Student
     public List<School> getSchoolByNumberOfStudent(Integer numberOfStudent) {
         List<Integer> typesOfSchoolIdsInStudent = studentRepositories.getDistinctSchoolIdsFromStudent();
         //{1,2 }
-
         Integer schoolIdThatUserWants = 0;
 
         for (Integer idOfSchool : typesOfSchoolIdsInStudent) {
@@ -111,10 +110,10 @@ public class SchoolService {
             }
         }
 
-
         School schoolThatUserWasLookingFor = schoolRepositories.getSchoolById(schoolIdThatUserWants);
         return (List<School>) schoolThatUserWasLookingFor;
 
     }
 }
+
 

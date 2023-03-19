@@ -28,6 +28,8 @@ public interface StudentRepositories extends CrudRepository<Student,Integer> {
     @Query(value = "SELECT DISTINCT schoolId FROM Student", nativeQuery = true)
     List<Integer> getDistinctSchoolIdsFromStudent();
 
+
+    //get School By Number Of Student
     @Query(value = "SELECT COUNT(id) From Student where schoolId = ?1", nativeQuery = true)
     Integer getCountOfStudentsBySchoolId(Integer schoolId);
 }

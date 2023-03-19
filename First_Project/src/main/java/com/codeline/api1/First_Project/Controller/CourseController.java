@@ -36,12 +36,12 @@ public class CourseController {
         return courses;
     }
 
-    @RequestMapping(value = "/getCourseByName" , method = RequestMethod.POST)
-    public Course getCourseByName(@RequestParam String course_name){
-        Course course = courseService.getCourseByName(course_name);
-        return course;
-
-    }
+//    @RequestMapping(value = "/getCourseByName" , method = RequestMethod.POST)
+//    public Course getCourseByName(@RequestParam String course_name){
+//        Course course = courseService.getCourseByName(course_name);
+//        return course;
+//
+//    }
 
 
 
