@@ -7,6 +7,7 @@ import com.codeline.api1.First_Project.Repositories.SchoolRepositories;
 import com.codeline.api1.First_Project.Repositories.StudentRepositories;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.Id;
@@ -66,8 +67,8 @@ public class SchoolService {
     public List<School> getAllActiveSchool() {
         return schoolRepositories.getAllActiveSchool();
 
-        //    @Query(value = "SELECT s from School s where s.isActive= :true")
-        //    List<School> getAllActiveSchool();
+//            @Query(value = "SELECT s from School s where s.isActive= :true")
+//            List<School> getAllActiveSchool();
     }
 
 
@@ -79,8 +80,8 @@ public class SchoolService {
     public List<School> getSchoolLatestRow() {
         return schoolRepositories.getSchoolLatestRow();
 
-        //    @Query(value = "SELECT s from School s where s.id= (SELECT MAX(s.id) FROM School s)")
-        //    List<School> getSchoolLatestRow();
+//            @Query(value = "SELECT s from School s where s.id= (SELECT MAX(s.id) FROM School s)")
+//            List<School> getSchoolLatestRow();
     }
 
 
@@ -112,6 +113,18 @@ public class SchoolService {
 
         School schoolThatUserWasLookingFor = schoolRepositories.getSchoolById(schoolIdThatUserWants);
         return (List<School>) schoolThatUserWasLookingFor;
+
+//        List<Integer> schoolIdsThatUserWants = new ArrayList<>();
+//
+//        for (Integer idOfSchool : typesOfSchoolIdsInStudent) {
+//            Integer count = studentRepositories.getCountOfStudentsBySchoolId(idOfSchool);
+//            if (numberOfStudent == count) {
+//                schoolIdsThatUserWants.add(idOfSchool);
+//            }
+//        }
+//
+//        List<School> schoolThatUserWasLookingFor = schoolRepositories.findAllById(schoolIdsThatUserWants);
+//        return schoolThatUserWasLookingFor;
 
     }
 }

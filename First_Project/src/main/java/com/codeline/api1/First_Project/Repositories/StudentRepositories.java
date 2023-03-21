@@ -22,8 +22,8 @@ public interface StudentRepositories extends CrudRepository<Student,Integer> {
     @Query("SELECT t from Student t where t.id= :studentId")
     Student getStudentById(@Param("studentId") Integer id);
 
-    @Query("SELECT t from from Course t where o.name= :Student_name")
-    Student getStudentByName(@Param("Student_name") String Student_name);
+    @Query("SELECT t from Student t where t.name= :name")
+    Student getStudentByName(@Param("name") String name);
 
     @Query(value = "SELECT DISTINCT schoolId FROM Student", nativeQuery = true)
     List<Integer> getDistinctSchoolIdsFromStudent();

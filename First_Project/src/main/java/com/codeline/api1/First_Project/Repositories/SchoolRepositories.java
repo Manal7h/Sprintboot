@@ -54,6 +54,8 @@ import java.util.List;
 
 
 
+        @Query(value = "SELECT DISTINCT school_id FROM student", nativeQuery = true)
+        List<Integer> getDistinctSchoolIdsFromStudent();
 
         //get School By Number Of Student
         @Query(value = "SELECT COUNT(id) From student where schoolId = ?1", nativeQuery = true)

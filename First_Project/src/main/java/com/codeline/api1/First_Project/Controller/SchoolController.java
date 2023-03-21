@@ -41,7 +41,7 @@ public class SchoolController {
     return activeSchoolList;
 }
 
-    @RequestMapping(value =  "/getAllActiveSchool")
+    @RequestMapping(value =  "/getAllUnActiveSchool")
     public  List<School> getAllUnActiveSchool() {
         List<School> unActiveSchoolList = schoolService.getAllUnActiveSchool();
         return unActiveSchoolList;
@@ -83,8 +83,13 @@ public class SchoolController {
     //get School By Number Of Student
     // Function that school by the User input for the Number of students (getSchoolByNumberOfStudents)
     @RequestMapping(value = "/getSchoolByNumberOfStudent", method = RequestMethod.POST)
-    public School getSchoolByNumberOfStudent(@RequestParam Integer numberOfStudent) {
-        return (School) schoolService.getSchoolByNumberOfStudent(numberOfStudent);
+
+    public List<School> getSchoolByNumberOfStudent(@RequestParam Integer numberOfStudent) {
+
+//        return (School) schoolService.getSchoolByNumberOfStudent(numberOfStudent);
+
+        List<School> schoolList=schoolService.getSchoolByNumberOfStudent(numberOfStudent);
+        return schoolList;
 
     }
 

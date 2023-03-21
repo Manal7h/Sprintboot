@@ -19,8 +19,8 @@ public interface CourseRepositories extends CrudRepository<Course,Integer> {
     @Query("SELECT m from Course m where m.id= :courseId")
     Course getCourseById(@Param("courseId") Integer id);
 
-//    @Query("SELECT o from from Course o where o.name =:course_name")
-//    Course getCourseByName(@Param("course_name") String course_name); //mapping the query and returning the Course
+    @Query("SELECT c FROM Course c WHERE c.name =:name")
+    Course getCourseByName(@Param("name") String name); //mapping the query and returning the Course
 }
 
 
