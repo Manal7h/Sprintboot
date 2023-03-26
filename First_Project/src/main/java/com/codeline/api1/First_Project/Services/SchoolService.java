@@ -1,20 +1,14 @@
 package com.codeline.api1.First_Project.Services;
 
-import com.codeline.api1.First_Project.Models.Course;
-import com.codeline.api1.First_Project.Models.Mark;
 import com.codeline.api1.First_Project.Models.School;
 import com.codeline.api1.First_Project.Repositories.SchoolRepositories;
 import com.codeline.api1.First_Project.Repositories.StudentRepositories;
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.Id;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -110,9 +104,11 @@ public class SchoolService {
                 break;
             }
         }
+             School schoolThatUserWasLookingFor = schoolRepositories.getSchoolById(schoolIdThatUserWants);
+           return (List<School>) schoolThatUserWasLookingFor;
 
-        School schoolThatUserWasLookingFor = schoolRepositories.getSchoolById(schoolIdThatUserWants);
-        return (List<School>) schoolThatUserWasLookingFor;
+    }
+//
 
 //        List<Integer> schoolIdsThatUserWants = new ArrayList<>();
 //
@@ -126,7 +122,24 @@ public class SchoolService {
 //        List<School> schoolThatUserWasLookingFor = schoolRepositories.findAllById(schoolIdsThatUserWants);
 //        return schoolThatUserWasLookingFor;
 
+
+        public StringBuilder formatSchoolObjectForSlack (School school){
+            StringBuilder sb = new StringBuilder();
+            sb.append("Id: *" + school.getId() + "*\n");
+            sb.append("School Name: *" + school.getName() + "*\n");
+            sb.append("Is Active: *" + school.getActive() + "*\n");
+            return sb;
+        }
+
+        public StringBuilder formatSchoolListForSlack (List < School > schools) {
+            StringBuilder mainStringBuilder = new StringBuilder();
+            for (School schoolFromListOfSchools : schools) {
+                mainStringBuilder.append(formatSchoolObjectForSlack(schoolFromListOfSchools));
+                mainStringBuilder.append("\n");
+            }
+            return mainStringBuilder;
+        }
     }
-}
+
 
 

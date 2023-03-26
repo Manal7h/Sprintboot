@@ -2,10 +2,16 @@ package com.codeline.api1.First_Project.Models;
 
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 
+
+@Getter
+@Setter
+@Data
 
 
 
