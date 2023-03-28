@@ -31,4 +31,5 @@ public class MarkController {
         Mark marks = markService.getMarksById(marksId);
         return marks;
     }
+
 }
