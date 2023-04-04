@@ -3,12 +3,16 @@ package com.codeline.api1.First_Project.Controller;
 import com.codeline.api1.First_Project.Models.Course;
 import com.codeline.api1.First_Project.Models.School;
 import com.codeline.api1.First_Project.Models.Student;
+import com.codeline.api1.First_Project.Services.ReportService;
 import com.codeline.api1.First_Project.Services.StudentService;
+import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.io.FileNotFoundException;
 import java.util.List;
 
 @RestController
@@ -18,6 +22,9 @@ public class StudentController {
 
     @Autowired // create one instance and can be used in the entire program
     StudentService studentService;
+
+    @Autowired
+    ReportService reportService;
 
     @RequestMapping(value = "/getAll" , method = RequestMethod.GET) // start the connection between java and web request onto specific handeler class/method
     public List<Student> getAllStudent() {
@@ -39,7 +46,10 @@ public class StudentController {
     }
 
 
-
+@RequestMapping(value = "report")
+    public  String generateStudentReport()throws FileNotFoundException, JRException {
+        return reportService.generateStudentReport();
+    }
 
 
 }

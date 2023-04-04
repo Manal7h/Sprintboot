@@ -45,4 +45,12 @@ public class Student extends BaseEnity{
     public void setRollNumber(String rollNumber) {
         this.rollNumber = rollNumber;
     }
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
+    }
 }
