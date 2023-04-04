@@ -28,10 +28,10 @@ public class ReportService {
     @Autowired
     private SchoolRepositories schoolRepository;
     @Autowired
-    StudentRepositories studentRepositories;
+    private StudentRepositories studentRepositories;
 
     @Autowired
-    MarkRepositories markRepositories;
+    private MarkRepositories markRepositories;
 
 
     public static final String pathToReports = "C:\\Users\\user018\\Downloads\\reports";
@@ -56,12 +56,12 @@ public class ReportService {
         List<SchoolStudentDTO> schoolStudentDTOS = new ArrayList<>();
         for (Student student : studentList) {
 
+            String stuName = student.getStuName();
+            String rollNumber = student.getRollNumber();
             String name = student.getSchool().getName();
-            String rollNamber = student.getRollNumber();
-            String stuName = student.getName();
 
 
-            SchoolStudentDTO schoolStudentDTO = new SchoolStudentDTO(name, rollNamber, stuName);//saving
+            SchoolStudentDTO schoolStudentDTO = new SchoolStudentDTO(stuName, rollNumber,name );//saving
             schoolStudentDTOS.add(schoolStudentDTO);
 
         }

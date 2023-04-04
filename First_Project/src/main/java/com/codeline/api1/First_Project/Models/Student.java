@@ -14,7 +14,7 @@ public class Student extends BaseEnity{
     Integer id;
 
     @Column(name = "Student_name") // change the column name
-    String name;
+    String stuName;
 
     String rollNumber;
 
@@ -30,12 +30,12 @@ public class Student extends BaseEnity{
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getStuName() {
+        return stuName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setStuName(String stuName) {
+        this.stuName = stuName;
     }
 
     public String getRollNumber() {

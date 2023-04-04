@@ -22,19 +22,19 @@ public class Schedule {
     @Autowired
     SchoolService schoolService;
 
-    @Scheduled(cron = "30 * * * * *")
+//    @Scheduled(cron = "30 * * * * *")
 
-    public List<School> getAllSchool() {
-        List<School> schools = schoolService.getAllSchool();
-        for(School school : schools){
-            slackClient.sendMessage("School name"+ school.getName());
-            slackClient.sendMessage("School created date"+ school.getCreatedDate());
-            slackClient.sendMessage("School updated date"+ school.getUpdatedDate());
-            slackClient.sendMessage("School Active"+ school.getActive());
-
-        }
-        return schools;
-    }
+//    public List<School> getAllSchool() {
+//        List<School> schools = schoolService.getAllSchool();
+//        for(School school : schools){
+//            slackClient.sendMessage("School name"+ school.getName());
+//            slackClient.sendMessage("School created date"+ school.getCreatedDate());
+//            slackClient.sendMessage("School updated date"+ school.getUpdatedDate());
+//            slackClient.sendMessage("School Active"+ school.getActive());
+//
+//        }
+//        return schools;
+//    }
 }
 
 

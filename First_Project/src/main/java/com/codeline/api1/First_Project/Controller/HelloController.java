@@ -13,11 +13,11 @@ public class HelloController {
     @Autowired
     SlackClient slackClient;
 
-    @GetMapping(value = "slackMessage")
-    public void message(@RequestParam String text) {
-        slackClient.sendMessage(text);
-
-
-    }
+//    @GetMapping(value = "slackMessage")
+//    public void message(@RequestParam String text) {
+//        slackClient.sendMessage(text);
+//
+//
+//    }
 
 }

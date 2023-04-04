@@ -10,13 +10,17 @@ import lombok.Setter;
 
 public class SchoolStudentDTO {
 
-    String name;
-    String rollNumber;
     String stuName;
+    String rollNumber;
+    String name;
 
-    public SchoolStudentDTO(String name, String rollNumber, String stuName) {
-        this.name = name;
-        this.rollNumber = rollNumber;
+    public SchoolStudentDTO(String stuName, String rollNumber, String name) {
         this.stuName = stuName;
+        this.rollNumber = rollNumber;
+        this.name = name;
     }
+
+
+
+
 }
