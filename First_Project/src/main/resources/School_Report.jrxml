@@ -48,7 +48,7 @@
                 <textElement textAlignment="Center">
                     <font size="14" isBold="true"/>
                 </textElement>
-                <text><![CDATA[CUSTOMERID]]></text>
+                <text><![CDATA[School Id]]></text>
             </staticText>
             <staticText>
                 <reportElement mode="Opaque" x="277" y="0" width="277" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="8125e150-b8ae-4be5-a6fe-b18905b40ac1">
@@ -57,7 +57,7 @@
                 <textElement textAlignment="Center">
                     <font size="14" isBold="true"/>
                 </textElement>
-                <text><![CDATA[EMPLOYEEID]]></text>
+                <text><![CDATA[School Name]]></text>
             </staticText>
         </band>
     </columnHeader>
