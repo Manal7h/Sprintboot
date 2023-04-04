@@ -1,8 +1,13 @@
 package com.codeline.api1.First_Project.Services;
 
+import com.codeline.api1.First_Project.DTO.CourseMarkDTO;
 import com.codeline.api1.First_Project.DTO.SchoolStudentDTO;
+import com.codeline.api1.First_Project.Models.Course;
+import com.codeline.api1.First_Project.Models.Mark;
 import com.codeline.api1.First_Project.Models.School;
 import com.codeline.api1.First_Project.Models.Student;
+import com.codeline.api1.First_Project.Repositories.CourseRepositories;
+import com.codeline.api1.First_Project.Repositories.MarkRepositories;
 import com.codeline.api1.First_Project.Repositories.SchoolRepositories;
 import com.codeline.api1.First_Project.Repositories.StudentRepositories;
 import net.sf.jasperreports.engine.*;
@@ -25,11 +30,13 @@ public class ReportService {
     @Autowired
     StudentRepositories studentRepositories;
 
+    @Autowired
+    MarkRepositories markRepositories;
 
 
     public static final String pathToReports = "C:\\Users\\user018\\Downloads\\reports";
 
-    public String generateReport()throws FileNotFoundException, JRException {
+    public String generateReport() throws FileNotFoundException, JRException {
         List<School> schoolList = schoolRepository.getAllSchool();
 
 
@@ -38,23 +45,23 @@ public class ReportService {
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(schoolList);
         Map<String, Object> paramters = new HashMap<>();
         paramters.put("CreatedBy", "Manal");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,paramters , dataSource); //print, format
-        JasperExportManager.exportReportToPdfFile(jasperPrint,pathToReports+"\\schools.pdf");
-        return "Report generated : " + pathToReports+"\\schools.pdf";
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, paramters, dataSource); //print, format
+        JasperExportManager.exportReportToPdfFile(jasperPrint, pathToReports + "\\schools.pdf");
+        return "Report generated : " + pathToReports + "\\schools.pdf";
     }
 
 
-    public String generateStudentReport()throws FileNotFoundException, JRException {
+    public String generateStudentReport() throws FileNotFoundException, JRException {
         List<Student> studentList = studentRepositories.getAllStudent();
         List<SchoolStudentDTO> schoolStudentDTOS = new ArrayList<>();
-        for (Student student: studentList) {
+        for (Student student : studentList) {
 
             String name = student.getSchool().getName();
             String rollNamber = student.getRollNumber();
             String stuName = student.getName();
 
 
-            SchoolStudentDTO schoolStudentDTO = new SchoolStudentDTO (name , rollNamber , stuName);//saving
+            SchoolStudentDTO schoolStudentDTO = new SchoolStudentDTO(name, rollNamber, stuName);//saving
             schoolStudentDTOS.add(schoolStudentDTO);
 
         }
@@ -65,8 +72,34 @@ public class ReportService {
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(schoolStudentDTOS);
         Map<String, Object> paramters = new HashMap<>();
         paramters.put("CreatedBy", "Manal");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,paramters , dataSource); //print, format
-        JasperExportManager.exportReportToPdfFile(jasperPrint,pathToReports+"\\student.pdf");
-        return "Report generated : " + pathToReports+"\\student.pdf";
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, paramters, dataSource); //print, format
+        JasperExportManager.exportReportToPdfFile(jasperPrint, pathToReports + "\\student.pdf");
+        return "Report generated : " + pathToReports + "\\student.pdf";
+    }
+
+    public String generateCourseReport() throws FileNotFoundException, JRException {
+        List<Mark> markList = markRepositories.getAllMark();
+        List<CourseMarkDTO> courseMarkDTOS = new ArrayList<>();
+        for (Mark mark : markList) {
+
+            String name = mark.getCourse().getName();
+            Integer obtainMark = mark.getObtainMark();
+            String grade = mark.getGrade();
+
+
+            CourseMarkDTO courseMarkDTO = new CourseMarkDTO(name, obtainMark, grade);//saving
+            courseMarkDTOS.add(courseMarkDTO);
+
+        }
+
+
+        File file = ResourceUtils.getFile("classpath:Course_Report.jrxml"); //classpath get the report
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath()); //File tell JR to compileReport
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(courseMarkDTOS);
+        Map<String, Object> paramters = new HashMap<>();
+        paramters.put("CreatedBy", "Manal");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, paramters, dataSource); //print, format
+        JasperExportManager.exportReportToPdfFile(jasperPrint, pathToReports + "\\Course.pdf");
+        return "Report generated : " + pathToReports + "\\Course.pdf";
     }
 }

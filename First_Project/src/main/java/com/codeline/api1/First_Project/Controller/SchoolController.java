@@ -4,14 +4,17 @@ package com.codeline.api1.First_Project.Controller;
 import com.codeline.api1.First_Project.Models.Mark;
 import com.codeline.api1.First_Project.Models.School;
 import com.codeline.api1.First_Project.Request.SchoolRequestForCreateDateUpdate;
+import com.codeline.api1.First_Project.Services.ReportService;
 import com.codeline.api1.First_Project.Services.SchoolService;
 import com.codeline.api1.First_Project.Slack.SlackClient;
+import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.util.List;
 
@@ -24,6 +27,9 @@ public class SchoolController {
     //=new SchoolService();
     @Autowired
     SlackClient slackClient;
+
+    @Autowired
+    ReportService reportService;
 
     @RequestMapping(value = "/getAll" , method = RequestMethod.GET) // start the connection between java and web request onto specific handeler class/method
     public List<School> getAllSchool() {
@@ -94,6 +100,11 @@ public class SchoolController {
         List<School> schoolList=schoolService.getSchoolByNumberOfStudent(numberOfStudent);
         return schoolList;
 
+    }
+
+    @RequestMapping(value = "report")
+    public  String generateReport()throws FileNotFoundException, JRException {
+        return reportService.generateReport();
     }
 
 
