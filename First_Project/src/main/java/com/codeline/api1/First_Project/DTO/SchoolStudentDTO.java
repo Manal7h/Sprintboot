@@ -1,15 +1,15 @@
 package com.codeline.api1.First_Project.DTO;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Setter
 @Getter
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 
 public class SchoolStudentDTO {
-
+//D T O (Data Transferred Obj)
     String stuName;
     String rollNumber;
     String name;

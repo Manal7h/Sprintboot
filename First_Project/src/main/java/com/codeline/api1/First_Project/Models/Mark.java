@@ -17,6 +17,8 @@ public class Mark extends BaseEnity{
 
 
 
+
+
     @ManyToOne // many mark to one course
     @JoinColumn(name = "course_id" , referencedColumnName = "id") //defining the foreign key
     Course course;
