@@ -12,7 +12,7 @@ import java.util.List;
 // This is where the business logic is done and everything related to the function and others and To give controller whatever it needs
 public class CourseService {
 
-    @Autowired // create one instance and can be used in the entire program
+    @Autowired // create one instance and can be used in the entire program , no need to create obj
     CourseRepositories courseRepositories;
 
 
