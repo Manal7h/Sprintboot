@@ -34,6 +34,8 @@ public class ReportService {
     private MarkRepositories markRepositories;
 
 
+
+
     public static final String pathToReports = "C:\\Users\\user018\\Downloads\\reports";
 
     public String generateReport() throws FileNotFoundException, JRException {
@@ -102,4 +104,25 @@ public class ReportService {
         JasperExportManager.exportReportToPdfFile(jasperPrint, pathToReports + "\\Course.pdf");
         return "Report generated : " + pathToReports + "\\Course.pdf";
     }
+
+
+
+        public String topPerformingStudents() throws FileNotFoundException, JRException {
+            List<School> schoolList = schoolRepository.getAllSchool();
+             for (School school : schoolList){
+                 List<Student> studentList = studentRepositories.getCountOfStudentsBySchoolId(school.getId());
+                 Integer highestMarks = 0 ;
+                 Student studentWithHighestMarks = new Student();
+                 for (Student student: studentList)
+
+
+        }
+
+
+
+
+
+    }
+
+
 }
