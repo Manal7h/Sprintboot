@@ -5,8 +5,7 @@ import lombok.*;
 @Setter
 @Getter
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 
 public class SchoolStudentDTO {
 //D T O (Data Transferred Obj)

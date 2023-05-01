@@ -21,6 +21,9 @@ public interface CourseRepositories extends CrudRepository<Course,Integer> {
 
     @Query("SELECT c FROM Course c WHERE c.name =:name")
     Course getCourseByName(@Param("name") String name); //mapping the query and returning the Course
+
+//    @Query(value = "SELECT sum(k.obtainMark) From Mark k where c.course.student.id = :studentId")
+//    Integer sumOfStudentMarksByStudentId(@Param("studentId") Integer studentId);
 }
 
 

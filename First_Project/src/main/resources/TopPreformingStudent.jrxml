@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.20.1.final using JasperReports Library version 6.20.1-7584acb244139816654f64e2fd57a00d3e31921e  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="StudentSchool" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8e86f782-3f31-4e54-9680-1aa87c0e1ed8">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TopPreforming" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8e86f782-3f31-4e54-9680-1aa87c0e1ed8">
 
-    <field name="stuName" class="java.lang.String">
+    <field name="studName" class="java.lang.String">
 
     </field>
-    <field name="name" class="java.lang.String">
+    <field name="schoolName" class="java.lang.String">
     </field>
     <background>
         <band/>
@@ -26,7 +26,7 @@
                     <textElement textAlignment="Right">
                         <font size="14" isBold="false"/>
                     </textElement>
-                    <text><![CDATA[Student School Report]]></text>
+                    <text><![CDATA[Top Preforming Report]]></text>
                 </staticText>
             </frame>
         </band>
@@ -71,7 +71,7 @@
                 <textElement>
                     <font size="14"/>
                 </textElement>
-                <textFieldExpression><![CDATA[$F{stuName}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{studName}]]></textFieldExpression>
             </textField>
             <textField textAdjust="StretchHeight">
                 <reportElement x="277" y="0" width="277" height="20" uuid="7196d4ec-97ad-497e-8fe6-ee23106baede">
@@ -80,7 +80,7 @@
                 <textElement>
                     <font size="14"/>
                 </textElement>
-                <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{schoolName}]]></textFieldExpression>
             </textField>
         </band>
     </detail>

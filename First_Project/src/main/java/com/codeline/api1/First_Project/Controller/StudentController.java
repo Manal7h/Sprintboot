@@ -33,8 +33,8 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/getById", method = RequestMethod.GET)
-    public Student getStudentById(@RequestParam Integer studentId) {
-        Student student = studentService.getStudentById(studentId);
+    public List<Student> getStudentById(@RequestParam Integer studentId) {
+      List<Student>  student = studentService.getStudentById(studentId);
         return student;
     }
 
@@ -50,6 +50,11 @@ public class StudentController {
     public  String generateStudentReport()throws FileNotFoundException, JRException {
         return reportService.generateStudentReport();
     }
+    @RequestMapping(value = "topPerformingStudents")
+    public String topPerformingStudents() throws Exception {
+        return reportService.topPerformingStudents();
+    }
+
 
 
 }

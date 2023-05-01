@@ -20,7 +20,7 @@ public interface StudentRepositories extends CrudRepository<Student,Integer> {
     List<Student> getAllStudent(); // getting all the course from the course list
 
     @Query("SELECT t from Student t where t.id= :studentId")
-    Student getStudentById(@Param("studentId") Integer id);
+    List<Student> getStudentById(@Param("studentId") Integer id);
 
     @Query("SELECT t from Student t where t.stuName= :stuName")
     Student getStudentByName(@Param("stuName") String stuName);
@@ -33,7 +33,11 @@ public interface StudentRepositories extends CrudRepository<Student,Integer> {
     @Query(value = "SELECT COUNT(id) From Student where schoolId = ?1", nativeQuery = true)
     Integer getCountOfStudentsBySchoolId(Integer schoolId);
 
-    @Query(value = "SELECT sum(k.obtainMark) From Mark k where k.course.student.id = ?studentId")
-    Integer sumOfStudentMarksByStudentId(@Param("studentId") Integer studentId);
+//    @Query(value = "select st from Student st where st.studentRollNumber = :studentRollNumber")
+//    Student getByStudentByRollNumber(Integer studentRollNumber);
+
+
+//    @Query(value = "SELECT sum(k.obtainMark) From Mark k where c.course.student.id = :studentId")
+//    Integer sumOfStudentMarksByStudentId(@Param("studentId") Integer studentId);
 }
 

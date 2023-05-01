@@ -22,16 +22,16 @@ public class StudentService {
         return studentRepositories.getAllStudent();
     }
 
-    public Student getStudentById(Integer id) {
-        Student student = studentRepositories.getStudentById(id); // getting the id from the user
-        return student; //creating an empty course and returning it.
+    public List<Student> getStudentById(Integer id) {
+        List<Student> student = studentRepositories.getStudentById(id); // getting the id from the user
+        return student ; //creating an empty course and returning it.
 
     }
 
     public Student getStudentByName(String Student_name) {
         Student student = studentRepositories.getStudentByName(Student_name);
-        Integer studentId = student.getId();
-        student = studentRepositories.getStudentById(studentId);
+//        Integer studentId = student.getId();
+//        List<Student> student2= studentRepositories.getStudentById(studentId);
         return student;
 
     }
