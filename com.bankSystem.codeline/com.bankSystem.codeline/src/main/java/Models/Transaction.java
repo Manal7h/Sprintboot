@@ -5,6 +5,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.xml.crypto.Data;
 
+@Entity
+
 public class Transaction extends BaseEntity{
 
     @Id

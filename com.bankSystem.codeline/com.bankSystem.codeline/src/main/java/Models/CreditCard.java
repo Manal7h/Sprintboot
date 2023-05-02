@@ -8,6 +8,9 @@ import javax.persistence.Id;
 @Entity // it will say : this is a table in database
 public class CreditCard extends BaseEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     Integer id;
     Integer cardNumber;
     Double creditLimit;

@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Loan extends BaseEntity{
 
     @Id
