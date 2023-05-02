@@ -1,4 +1,4 @@
-package Repositories;
+package com.bankSystem.com.bankSystem.codeline.Repositories;
 
 import org.springframework.stereotype.Repository;
 

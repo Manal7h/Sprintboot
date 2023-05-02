@@ -1,4 +1,4 @@
-package Models;
+package com.bankSystem.com.bankSystem.codeline.Models;
 
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;

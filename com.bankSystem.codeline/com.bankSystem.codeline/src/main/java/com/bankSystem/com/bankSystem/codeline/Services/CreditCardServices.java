@@ -1,6 +1,6 @@
-package Services;
+package com.bankSystem.com.bankSystem.codeline.Services;
 
-import Repositories.CreditCardRepositories;
+import com.bankSystem.com.bankSystem.codeline.Repositories.CreditCardRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

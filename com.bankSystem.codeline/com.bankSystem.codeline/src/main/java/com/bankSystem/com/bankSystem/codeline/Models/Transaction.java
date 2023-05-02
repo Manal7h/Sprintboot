@@ -1,9 +1,17 @@
-package Models;
+package com.bankSystem.com.bankSystem.codeline.Models;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.*;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.xml.crypto.Data;
+import java.util.Date;
+
+@Getter
+@Setter
+@Data
 
 @Entity
 
@@ -14,7 +22,7 @@ public class Transaction extends BaseEntity{
 
     Integer id;
     Double amount;
-    Data transactionDate;
+    Date transactionDate;
 
     @ManyToOne  // many transaction to one creditCard
     @JoinColumn(name = "creditCard_id" , referencedColumnName = "id") //defining the foreign key

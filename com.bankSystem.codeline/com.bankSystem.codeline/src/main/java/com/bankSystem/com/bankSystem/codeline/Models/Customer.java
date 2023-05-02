@@ -1,4 +1,4 @@
-package Models;
+package com.bankSystem.com.bankSystem.codeline.Models;
 
 
 import lombok.Data;

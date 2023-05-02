@@ -1,14 +1,16 @@
-package Services;
+package com.bankSystem.com.bankSystem.codeline.Services;
 
-import Repositories.CustomerRepositories;
+import com.bankSystem.com.bankSystem.codeline.Repositories.AccountRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 // This is where the business logic is done and everything related to the function and others and To give controller whatever it needs
-public class CustomerServices {
+public class AccountServices {
 
     @Autowired // create one instance and can be used in the entire program , no need to create obj
-    CustomerRepositories customerRepositories;
+    AccountRepositories accountRepositories;
+
+
 
 }
