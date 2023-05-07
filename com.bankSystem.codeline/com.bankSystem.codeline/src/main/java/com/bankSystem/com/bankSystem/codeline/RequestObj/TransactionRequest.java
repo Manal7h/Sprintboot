@@ -13,8 +13,6 @@ import java.util.Date;
 @Setter
 @Data
 public class TransactionRequest {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     Integer id;
     Double amount;

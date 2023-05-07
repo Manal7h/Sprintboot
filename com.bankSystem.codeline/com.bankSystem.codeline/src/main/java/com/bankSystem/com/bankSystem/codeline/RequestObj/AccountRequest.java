@@ -14,8 +14,6 @@ import javax.persistence.Id;
 @Data
 public class AccountRequest {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     Integer id;
 

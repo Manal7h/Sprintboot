@@ -1,8 +1,12 @@
 package com.bankSystem.com.bankSystem.codeline.Services;
 
+import com.bankSystem.com.bankSystem.codeline.Models.CreditCard;
 import com.bankSystem.com.bankSystem.codeline.Models.Customer;
 import com.bankSystem.com.bankSystem.codeline.Models.Loan;
+import com.bankSystem.com.bankSystem.codeline.Repositories.CustomerRepositories;
 import com.bankSystem.com.bankSystem.codeline.Repositories.LoanRepositories;
+import com.bankSystem.com.bankSystem.codeline.RequestObj.CreditCardRequest;
+import com.bankSystem.com.bankSystem.codeline.RequestObj.LoanRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,17 +18,26 @@ public class LoanServices {
 
     @Autowired // create one instance and can be used in the entire program , no need to create obj
     LoanRepositories loanRepositories;
+    @Autowired
+    CustomerRepositories customerRepositories;
 
-    //create
-//    public void CreateLoan(Double amount, Double insertRate){
-//        Loan loan = new Loan();
-//        loan.setAmount(amount);
-//        loan.setInsertRate(insertRate);
-//        loan.setCreatedDate(new Date());
-//        loan.setUpdatedDate(new Date());
-//        loan.setActive(Boolean.TRUE);
-//
-//
-//    }
+
+    public void createLoan(LoanRequest loanRequest) {
+        Loan loan = LoanRequest.convert(loanRequest);
+        Customer customer = customerRepositories.findById(loanRequest.getCustomerId()).get();
+        loan.setCustomer(customer);
+        loanRepositories.save(loan);
+
+
+    }
+
+    public void updateLoan(LoanRequest loanRequest) {
+        Loan loan = LoanRequest.convert(loanRequest);
+        Customer customer = customerRepositories.findById(loanRequest.getCustomerId()).get();
+        loan.setCustomer(customer);
+        loan.setUpdatedDate(new Date());
+        loanRepositories.save(loan);
+
+    }
 
 }
