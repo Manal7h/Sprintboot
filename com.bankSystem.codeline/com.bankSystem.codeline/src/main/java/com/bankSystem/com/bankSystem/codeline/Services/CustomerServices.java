@@ -34,6 +34,12 @@ public class CustomerServices {
     Customer customer = CustomerRequest.convert(customerRequest);
     customerRepositories.save(customer);
     }
+
+    public void upDateCustomer(CustomerRequest customerRequest){
+        Customer customer = CustomerRequest.convert(customerRequest);
+        customer.setUpdatedDate(new Date());
+        customerRepositories.save(customer);
+    }
 }
 
 
