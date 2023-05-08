@@ -4,6 +4,7 @@ import com.bankSystem.com.bankSystem.codeline.Models.Account;
 import com.bankSystem.com.bankSystem.codeline.Models.Customer;
 import com.bankSystem.com.bankSystem.codeline.Repositories.AccountRepositories;
 import com.bankSystem.com.bankSystem.codeline.Repositories.CustomerRepositories;
+import com.bankSystem.com.bankSystem.codeline.RequestObj.AccountRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +37,21 @@ public class AccountServices {
 //
 //
 //    }
+
+    public void createAccount(AccountRequest accountRequest){
+       Account account = AccountRequest.convert(accountRequest);
+       Customer customer = customerRepositories.findById(accountRequest.getCustomerId()).get();
+       account.setCustomer(customer);
+       accountRepositories.save(account);
+    }
+
+    public void upDateAccount(AccountRequest accountRequest){
+        Account account = AccountRequest.convert(accountRequest);
+        Customer customer = customerRepositories.findById(accountRequest.getCustomerId()).get();
+        account.setCustomer(customer);
+        account.setUpdatedDate(new Date());
+        accountRepositories.save(account);
+    }
 
 
 
