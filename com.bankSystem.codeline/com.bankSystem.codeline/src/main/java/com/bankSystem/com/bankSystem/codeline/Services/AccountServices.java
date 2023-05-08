@@ -20,29 +20,22 @@ public class AccountServices {
     CustomerRepositories customerRepositories;
 
 
-    public void createAccount( Double balance, Integer accountNumber , Integer customerId)
-    {
-        Account account = new Account();
-        account.setBalance(balance);
-        account.setAccountNumber(accountNumber);
-        account.setCreatedDate(new Date());
-        account.setUpdatedDate(new Date());
-        account.setActive(Boolean.TRUE);
-
-
-        Customer customer = customerRepositories.findById(customerId).get();
-        account.setCustomer(customer);
-        accountRepositories.save(account);
-
-
-
-
-
-
-
-
-
-    }
+//    public void createAccount( Double balance, Integer accountNumber , Integer customerId)
+//    {
+//        Account account = new Account();
+//        account.setBalance(balance);
+//        account.setAccountNumber(accountNumber);
+//        account.setCreatedDate(new Date());
+//        account.setUpdatedDate(new Date());
+//        account.setActive(Boolean.TRUE);
+//
+//
+//        Customer customer = customerRepositories.findById(customerId).get();
+//        account.setCustomer(customer);
+//        accountRepositories.save(account);
+//
+//
+//    }
 
 
 
