@@ -1,7 +1,10 @@
 package com.bankSystem.com.bankSystem.codeline.Services;
 
 import com.bankSystem.com.bankSystem.codeline.Models.Customer;
+import com.bankSystem.com.bankSystem.codeline.Models.Loan;
 import com.bankSystem.com.bankSystem.codeline.Repositories.CustomerRepositories;
+import com.bankSystem.com.bankSystem.codeline.RequestObj.CustomerRequest;
+import com.bankSystem.com.bankSystem.codeline.RequestObj.LoanRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,16 +18,23 @@ public class CustomerServices {
     CustomerRepositories customerRepositories;
 
 //create
-    public void createCustomer(String customerName,String customerEmail,Integer customerPhone){
-        Customer customer = new Customer();
-        customer.setCustomerName(customerName);
-        customer.setCustomerEmail(customerEmail);
-        customer.setCustomerPhone(customerPhone);
-        customer.setCreatedDate(new Date());
-        customer.setUpdatedDate(new Date());
-        customer.setActive(Boolean.TRUE);
-        customerRepositories.save(customer);
+//    public void createCustomer(String customerName,String customerEmail,Integer customerPhone){
+//        Customer customer = new Customer();
+//        customer.setCustomerName(customerName);
+//        customer.setCustomerEmail(customerEmail);
+//        customer.setCustomerPhone(customerPhone);
+//        customer.setCreatedDate(new Date());
+//        customer.setUpdatedDate(new Date());
+//        customer.setActive(Boolean.TRUE);
+//        customerRepositories.save(customer);
+//
+//    }
 
+    public void createCustomer(CustomerRequest customerRequest){
+    Customer customer = CustomerRequest.convert(customerRequest);
+    customerRepositories.save(customer);
     }
-
 }
+
+
+

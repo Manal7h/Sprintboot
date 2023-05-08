@@ -35,9 +35,9 @@ public class TransactionServices {
         Date convertedDateFromStringTODateFormat = dateFormat.parse(transactionRequest.getTransactionDate());
         transaction.setTransactionDate(convertedDateFromStringTODateFormat);
         transaction.setTransactionDate(new Date());
-        transaction.setUpdatedDate(new Date());
         transaction.setActive(Boolean.TRUE);
 
+        transaction.setUpdatedDate(new Date());
         CreditCard creditCard = creditCardRepositories.findById(transactionRequest.getCreditCardId()) .get();
         transaction.setCreatedDate(new Date());
         transactionRepositories.save(transaction);

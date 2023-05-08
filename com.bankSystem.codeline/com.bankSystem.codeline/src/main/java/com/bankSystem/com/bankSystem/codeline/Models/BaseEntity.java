@@ -1,5 +1,6 @@
 package com.bankSystem.com.bankSystem.codeline.Models;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
@@ -8,7 +9,7 @@ import java.util.Date;
 
 @MappedSuperclass
 public class BaseEntity {
-    @CreatedDate
+    @CreationTimestamp
     Date createdDate;
 
     @UpdateTimestamp
