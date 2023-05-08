@@ -2,10 +2,12 @@ package com.bankSystem.com.bankSystem.codeline.Services;
 
 import com.bankSystem.com.bankSystem.codeline.Models.CreditCard;
 import com.bankSystem.com.bankSystem.codeline.Models.Customer;
+import com.bankSystem.com.bankSystem.codeline.Models.Loan;
 import com.bankSystem.com.bankSystem.codeline.Models.Transaction;
 import com.bankSystem.com.bankSystem.codeline.Repositories.CreditCardRepositories;
 import com.bankSystem.com.bankSystem.codeline.Repositories.CustomerRepositories;
 import com.bankSystem.com.bankSystem.codeline.Repositories.TransactionRepositories;
+import com.bankSystem.com.bankSystem.codeline.RequestObj.LoanRequest;
 import com.bankSystem.com.bankSystem.codeline.RequestObj.TransactionRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.datetime.DateFormatter;
@@ -46,7 +48,16 @@ public class TransactionServices {
     public void createTransaction(TransactionRequest transactionRequest) throws ParseException {
         Transaction transaction = TransactionRequest.convert(transactionRequest);
         CreditCard creditCard = creditCardRepositories.findById(transactionRequest.getCreditCardId()).get();
-        transaction.setCreatedDate(new Date());
+        transaction.setCreditCard(creditCard);
+        transactionRepositories.save(transaction);
+
+    }
+
+    public void upDateTransaction(TransactionRequest transactionRequest) throws ParseException {
+        Transaction transaction = TransactionRequest.convert(transactionRequest);
+        CreditCard creditCard = creditCardRepositories.findById(transactionRequest.getCreditCardId()).get();
+        transaction.setCreditCard(creditCard);
+        transaction.setUpdatedDate(new Date());
         transactionRepositories.save(transaction);
 
     }
