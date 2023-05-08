@@ -60,5 +60,13 @@ public class AccountServices {
     public List<Account> getAllAccount() {
         return accountRepositories.getAllAccount();
     }
+
+
+    public void deleteAccountById(AccountRequest accountRequest) {
+        Account account = accountRepositories.getAccountById(accountRequest.getId());
+        account.setActive(Boolean.FALSE);
+        accountRepositories.save(account);
+
+    }
 }
 
