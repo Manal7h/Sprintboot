@@ -43,6 +43,14 @@ public class TransactionServices {
 //        transactionRepositories.save(transaction);
 //    }
 
+    public void createTransaction(TransactionRequest transactionRequest) throws ParseException {
+        Transaction transaction = TransactionRequest.convert(transactionRequest);
+        CreditCard creditCard = creditCardRepositories.findById(transactionRequest.getCreditCardId()).get();
+        transaction.setCreatedDate(new Date());
+        transactionRepositories.save(transaction);
+
+    }
+
 
 }
 
