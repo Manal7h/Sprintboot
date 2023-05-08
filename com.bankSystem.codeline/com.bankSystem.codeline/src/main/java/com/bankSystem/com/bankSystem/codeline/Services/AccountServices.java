@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 // This is where the business logic is done and everything related to the function and others and To give controller whatever it needs
@@ -37,7 +38,7 @@ public class AccountServices {
 //
 //
 //    }
-
+    //Create
     public void createAccount(AccountRequest accountRequest){
        Account account = AccountRequest.convert(accountRequest);
        Customer customer = customerRepositories.findById(accountRequest.getCustomerId()).get();
@@ -45,6 +46,7 @@ public class AccountServices {
        accountRepositories.save(account);
     }
 
+    //Up
     public void upDateAccount(AccountRequest accountRequest){
         Account account = AccountRequest.convert(accountRequest);
         Customer customer = customerRepositories.findById(accountRequest.getCustomerId()).get();
@@ -54,6 +56,9 @@ public class AccountServices {
     }
 
 
-
+    //Read
+    public List<Account> getAllAccount() {
+        return accountRepositories.getAllAccount();
+    }
 }
 
