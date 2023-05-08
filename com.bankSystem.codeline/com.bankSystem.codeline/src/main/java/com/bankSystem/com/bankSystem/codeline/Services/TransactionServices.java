@@ -27,20 +27,22 @@ public class TransactionServices {
     @Autowired
     CreditCardRepositories creditCardRepositories;
 
-    public void createTransaction(TransactionRequest transactionRequest) throws ParseException {
-        Transaction transaction = new Transaction();
-        transaction.setAmount(transactionRequest.getAmount());
+//    public void createTransaction(TransactionRequest transactionRequest) throws ParseException {
+//        Transaction transaction = new Transaction();
+//        transaction.setAmount(transactionRequest.getAmount());
+//
+//        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//        Date convertedDateFromStringTODateFormat = dateFormat.parse(transactionRequest.getTransactionDate());
+//        transaction.setTransactionDate(convertedDateFromStringTODateFormat);
+//        transaction.setTransactionDate(new Date());
+//        transaction.setActive(Boolean.TRUE);
+//
+//        transaction.setUpdatedDate(new Date());
+//        CreditCard creditCard = creditCardRepositories.findById(transactionRequest.getCreditCardId()) .get();
+//        transaction.setCreatedDate(new Date());
+//        transactionRepositories.save(transaction);
+//    }
 
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date convertedDateFromStringTODateFormat = dateFormat.parse(transactionRequest.getTransactionDate());
-        transaction.setTransactionDate(convertedDateFromStringTODateFormat);
-        transaction.setTransactionDate(new Date());
-        transaction.setActive(Boolean.TRUE);
 
-        transaction.setUpdatedDate(new Date());
-        CreditCard creditCard = creditCardRepositories.findById(transactionRequest.getCreditCardId()) .get();
-        transaction.setCreatedDate(new Date());
-        transactionRepositories.save(transaction);
-    }
 }
 
