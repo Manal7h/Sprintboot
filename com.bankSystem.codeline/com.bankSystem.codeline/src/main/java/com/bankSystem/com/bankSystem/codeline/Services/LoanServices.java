@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 // This is where the business logic is done and everything related to the function and others and To give controller whatever it needs
@@ -38,6 +39,10 @@ public class LoanServices {
         loan.setUpdatedDate(new Date());
         loanRepositories.save(loan);
 
+    }
+
+    public List<Loan> getAllLoan() {
+        return loanRepositories.getAllLoan();
     }
 
 }

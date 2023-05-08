@@ -1,5 +1,6 @@
 package com.bankSystem.com.bankSystem.codeline.Services;
 
+import com.bankSystem.com.bankSystem.codeline.Models.CreditCard;
 import com.bankSystem.com.bankSystem.codeline.Models.Customer;
 import com.bankSystem.com.bankSystem.codeline.Models.Loan;
 import com.bankSystem.com.bankSystem.codeline.Repositories.CustomerRepositories;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 // This is where the business logic is done and everything related to the function and others and To give controller whatever it needs
@@ -39,6 +41,10 @@ public class CustomerServices {
         Customer customer = CustomerRequest.convert(customerRequest);
         customer.setUpdatedDate(new Date());
         customerRepositories.save(customer);
+    }
+
+    public List<Customer> getAllCustomer() {
+        return customerRepositories.getAllCustomer();
     }
 }
 

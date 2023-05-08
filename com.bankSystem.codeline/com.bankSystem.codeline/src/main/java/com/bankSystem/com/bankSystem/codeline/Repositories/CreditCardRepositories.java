@@ -1,6 +1,6 @@
 package com.bankSystem.com.bankSystem.codeline.Repositories;
 
-import com.bankSystem.com.bankSystem.codeline.Models.Account;
+
 import com.bankSystem.com.bankSystem.codeline.Models.CreditCard;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

@@ -17,6 +17,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Service
 // This is where the business logic is done and everything related to the function and others and To give controller whatever it needs
@@ -60,6 +61,10 @@ public class TransactionServices {
         transaction.setUpdatedDate(new Date());
         transactionRepositories.save(transaction);
 
+    }
+
+    public List<Transaction> getAllTransaction() {
+        return transactionRepositories.getAllTransaction();
     }
 
 
