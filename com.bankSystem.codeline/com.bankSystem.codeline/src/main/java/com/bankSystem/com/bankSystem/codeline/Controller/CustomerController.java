@@ -22,7 +22,7 @@ public class CustomerController {
     @Autowired
     CustomerServices customerServices;
 
-    @RequestMapping(value = "/createCustomer" , method = RequestMethod.GET)
+    @RequestMapping(value = "/createCustomer" , method = RequestMethod.POST)
     public String createCustomer(CustomerRequest customerRequest){
         try {
             customerServices.createCustomer(customerRequest);

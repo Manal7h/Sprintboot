@@ -21,7 +21,7 @@ public class LoanController {
     @Autowired
     LoanServices loanServices;
 
-    @RequestMapping(value = "/createLoan" , method = RequestMethod.GET)
+    @RequestMapping(value = "/createLoan" , method = RequestMethod.POST)
     public String createLoan(LoanRequest loanRequest) {
         try {
             loanServices.createLoan(loanRequest);

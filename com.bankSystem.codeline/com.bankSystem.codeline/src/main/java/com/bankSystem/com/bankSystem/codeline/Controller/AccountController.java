@@ -3,6 +3,7 @@ package com.bankSystem.com.bankSystem.codeline.Controller;
 import com.bankSystem.com.bankSystem.codeline.Models.Account;
 import com.bankSystem.com.bankSystem.codeline.RequestObj.AccountRequest;
 import com.bankSystem.com.bankSystem.codeline.RequestObj.CreditCardRequest;
+import com.bankSystem.com.bankSystem.codeline.RequestObj.CustomerRequest;
 import com.bankSystem.com.bankSystem.codeline.Services.AccountServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,18 @@ public class AccountController {
 
     @Autowired
     AccountServices accountServices;
+
+
+    //Account Entity: 1
+    @RequestMapping(value = "/createAccount" , method = RequestMethod.POST)
+    public String createAccount(AccountRequest accountRequest){
+        try {
+            accountServices.createAccount(accountRequest);
+        } catch (Exception e) {
+            return "Failed Delete";
+        }
+        return "Delete Successfully";
+    }
 
     @RequestMapping(value = "/getAll" , method = RequestMethod.GET) // start the connection between java and web request onto specific handeler class/method
     public List<Account> getAllAccount() {

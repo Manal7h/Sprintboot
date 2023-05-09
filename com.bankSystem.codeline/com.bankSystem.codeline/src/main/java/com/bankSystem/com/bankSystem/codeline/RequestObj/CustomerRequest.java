@@ -18,6 +18,8 @@ public class CustomerRequest {
     String customerEmail;
     Integer customerPhone;
 
+
+    //Account Entity: 1
     public static Customer convert(CustomerRequest request){
         Customer customer = new Customer();
         customer.setCustomerName(request.getCustomerName());

@@ -24,6 +24,7 @@ public class AccountRequest {
     Integer customerId;
 
 
+    //Account Entity: 1
     public static Account convert (AccountRequest request){
         Account account = new Account();
         account.setBalance(request.getBalance());

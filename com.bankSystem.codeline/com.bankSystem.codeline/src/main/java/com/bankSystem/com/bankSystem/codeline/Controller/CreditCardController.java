@@ -22,7 +22,9 @@ public class CreditCardController {
     CreditCardServices creditCardServices;
 
 
-    @RequestMapping(value = "/createCreditCard" , method = RequestMethod.GET)
+
+
+    @RequestMapping(value = "/createCreditCard" , method = RequestMethod.POST)
     public String createCreditCard(CreditCardRequest creditCardRequest){
         try {
             creditCardServices.createCreditCard(creditCardRequest);

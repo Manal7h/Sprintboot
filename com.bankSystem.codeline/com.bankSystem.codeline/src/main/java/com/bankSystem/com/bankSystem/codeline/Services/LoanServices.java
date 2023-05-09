@@ -24,6 +24,7 @@ public class LoanServices {
     CustomerRepositories customerRepositories;
 
 
+    //Account Entity: 1
     public void createLoan(LoanRequest loanRequest) {
         Loan loan = LoanRequest.convert(loanRequest);
         Customer customer = customerRepositories.findById(loanRequest.getCustomerId()).get();

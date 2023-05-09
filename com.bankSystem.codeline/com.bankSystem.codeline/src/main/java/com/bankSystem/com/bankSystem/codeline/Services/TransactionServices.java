@@ -32,6 +32,7 @@ public class TransactionServices {
     AccountRepositories accountRepositories;
 
 
+    //Account Entity: 1
     public void createTransaction3(TransactionRequest transactionRequest) throws ParseException {
         Transaction transaction = TransactionRequest.convert(transactionRequest);
 //        CreditCard creditCard = creditCardRepositories.findById(transactionRequest.getCreditCardId()).get();

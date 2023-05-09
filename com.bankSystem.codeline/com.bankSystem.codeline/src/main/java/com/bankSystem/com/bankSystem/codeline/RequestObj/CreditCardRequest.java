@@ -21,6 +21,7 @@ public class CreditCardRequest {
     Double creditLimit;
     Integer customerId;
 
+    //Account Entity: 1
     public static CreditCard convert(CreditCardRequest request) {
         CreditCard creditCard = new CreditCard();
         creditCard.setCardNumber(request.getCardNumber());

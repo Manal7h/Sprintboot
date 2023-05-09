@@ -20,6 +20,8 @@ public class LoanRequest {
 
     Integer customerId;
 
+
+    //Account Entity: 1
     public static Loan convert(LoanRequest request){
         Loan loan = new Loan();
         loan.setAmount(request.getAmount());
