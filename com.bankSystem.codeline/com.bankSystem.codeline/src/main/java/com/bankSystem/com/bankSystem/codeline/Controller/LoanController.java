@@ -2,6 +2,8 @@ package com.bankSystem.com.bankSystem.codeline.Controller;
 
 import com.bankSystem.com.bankSystem.codeline.Models.Customer;
 import com.bankSystem.com.bankSystem.codeline.Models.Loan;
+import com.bankSystem.com.bankSystem.codeline.RequestObj.CustomerRequest;
+import com.bankSystem.com.bankSystem.codeline.RequestObj.LoanRequest;
 import com.bankSystem.com.bankSystem.codeline.Services.LoanServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +24,15 @@ public class LoanController {
     public List<Loan> getAllLoan() {
         List<Loan> loan = loanServices.getAllLoan();
         return loan;
+    }
 
+    @RequestMapping(value = "/deleteById", method = RequestMethod.GET)
+    public String deleteLoanById(LoanRequest loanRequest) {
+        try {
+            loanServices.deleteLoanById(loanRequest);
+        } catch (Exception e) {
+            return "Failed Delete";
+        }
+        return "Delete Successfully";
     }
 }

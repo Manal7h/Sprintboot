@@ -6,6 +6,7 @@ import com.bankSystem.com.bankSystem.codeline.Models.Loan;
 import com.bankSystem.com.bankSystem.codeline.Repositories.CustomerRepositories;
 import com.bankSystem.com.bankSystem.codeline.Repositories.LoanRepositories;
 import com.bankSystem.com.bankSystem.codeline.RequestObj.CreditCardRequest;
+import com.bankSystem.com.bankSystem.codeline.RequestObj.CustomerRequest;
 import com.bankSystem.com.bankSystem.codeline.RequestObj.LoanRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,6 +44,13 @@ public class LoanServices {
 
     public List<Loan> getAllLoan() {
         return loanRepositories.getAllLoan();
+    }
+
+    public void deleteLoanById(LoanRequest loanRequest) {
+        Loan loan = loanRepositories.getLoanById(loanRequest.getId());
+        loan.setActive(Boolean.FALSE);
+        loanRepositories.save(loan);
+
     }
 
 }
