@@ -53,7 +53,7 @@ public class TransactionController {
     @RequestMapping(value = "makeTransaction", method = RequestMethod.POST)
     public String makeTransaction(@RequestBody TransactionRequest transactionRequest) {
         try {
-            TransactionServices.createTransaction(transactionRequest);
+            transactionServices.createTransaction(transactionRequest);
             return "Transaction made Successfully";
         } catch (Exception e) {
             return "Transaction Failed";

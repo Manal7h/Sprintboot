@@ -25,33 +25,17 @@ public class TransactionServices {
     @Autowired // create one instance and can be used in the entire program , no need to create obj
     TransactionRepositories transactionRepositories;
 
-    @Autowired
-    CreditCardRepositories creditCardRepositories;
+//    @Autowired
+//    CreditCardRepositories creditCardRepositories;
 
     @Autowired
     AccountRepositories accountRepositories;
 
-//    public void createTransaction(TransactionRequest transactionRequest) throws ParseException {
-//        Transaction transaction = new Transaction();
-//        transaction.setAmount(transactionRequest.getAmount());
-//
-//        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//        Date convertedDateFromStringTODateFormat = dateFormat.parse(transactionRequest.getTransactionDate());
-//        transaction.setTransactionDate(convertedDateFromStringTODateFormat);
-//        transaction.setTransactionDate(new Date());
-//        transaction.setActive(Boolean.TRUE);
-//
-//        transaction.setUpdatedDate(new Date());
-//        CreditCard creditCard = creditCardRepositories.findById(transactionRequest.getCreditCardId()) .get();
-//        transaction.setCreatedDate(new Date());
-//        transactionRepositories.save(transaction);
-//    }
 
     public void createTransaction3(TransactionRequest transactionRequest) throws ParseException {
         Transaction transaction = TransactionRequest.convert(transactionRequest);
-        CreditCard creditCard = creditCardRepositories.findById(transactionRequest.getCreditCardId()).get();
-        transaction.setCreditCard(creditCard);
-
+//        CreditCard creditCard = creditCardRepositories.findById(transactionRequest.getCreditCardId()).get();
+//        transaction.setCreditCard(creditCard);
         Account account = accountRepositories.findById(transactionRequest.getAccountNumber()).get();
         transaction.setAccount(account);
         transactionRepositories.save(transaction);
@@ -60,8 +44,11 @@ public class TransactionServices {
 
     public void upDateTransaction(TransactionRequest transactionRequest) throws ParseException {
         Transaction transaction = TransactionRequest.convert(transactionRequest);
-        CreditCard creditCard = creditCardRepositories.findById(transactionRequest.getCreditCardId()).get();
-        transaction.setCreditCard(creditCard);
+//        CreditCard creditCard = creditCardRepositories.findById(transactionRequest.getCreditCardId()).get();
+//        transaction.setCreditCard(creditCard);
+        Account account = accountRepositories.findById(transactionRequest.getAccountNumber()).get();
+        transaction.setAccount(account);
+
         transaction.setUpdatedDate(new Date());
         transactionRepositories.save(transaction);
 

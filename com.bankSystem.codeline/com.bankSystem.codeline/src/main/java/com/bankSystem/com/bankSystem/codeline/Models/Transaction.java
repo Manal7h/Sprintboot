@@ -26,11 +26,11 @@ public class Transaction extends BaseEntity{
 
 
 
-    @ManyToOne  // many transaction to one creditCard
-    @JoinColumn(name = "creditCard_id" , referencedColumnName = "id") //defining the foreign key
-    CreditCard creditCard;
+//    @ManyToOne  // many transaction to one creditCard
+//    @JoinColumn(name = "creditCard_id" , referencedColumnName = "id") //defining the foreign key
+//    CreditCard creditCard;
 
-    @ManyToOne  // many account to one customer
+    @ManyToOne  // many transaction to one account
     @JoinColumn(name = "account_id" , referencedColumnName = "id") //defining the foreign key
     Account account;
 }

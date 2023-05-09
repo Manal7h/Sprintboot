@@ -25,7 +25,7 @@ public class CustomerController {
     @RequestMapping(value = "/createCustomer" , method = RequestMethod.GET)
     public String createCustomer(CustomerRequest customerRequest){
         try {
-            customerRequest.createCustomer(customerRequest);
+            customerServices.createCustomer(customerRequest);
         } catch (Exception e) {
             return "Failed Delete";
         }

@@ -22,7 +22,7 @@ public class TransactionRequest {
     Double amount;
     String transactionDate;
 
-    Integer creditCardId;
+//    Integer creditCardId;
 
     Integer accountNumber;
 
