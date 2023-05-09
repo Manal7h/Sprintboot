@@ -67,6 +67,13 @@ public class TransactionServices {
         return transactionRepositories.getAllTransaction();
     }
 
+    public void deleteTransactionById(TransactionRequest transactionRequest) {
+        Transaction transaction = transactionRepositories.getTransactionById(transactionRequest.getId());
+        transaction.setActive(Boolean.FALSE);
+        transactionRepositories.save(transaction);
+
+    }
+
 
 }
 
