@@ -6,6 +6,7 @@ import com.bankSystem.com.bankSystem.codeline.RequestObj.LoanRequest;
 import com.bankSystem.com.bankSystem.codeline.RequestObj.TransactionRequest;
 import com.bankSystem.com.bankSystem.codeline.Services.TransactionServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,6 +35,17 @@ public class TransactionController {
             return "Failed Delete";
         }
         return "Delete Successfully";
+    }
+
+    //Account Entity: 3
+    @RequestMapping(value = "makeTransaction", method = RequestMethod.POST)
+    public String makeTransaction(@RequestBody TransactionRequest transactionRequest) {
+        try {
+            TransactionServices.createTransaction(transactionRequest);
+            return "Transaction made Successfully";
+        } catch (Exception e) {
+            return "Transaction Failed";
+        }
     }
 
 }

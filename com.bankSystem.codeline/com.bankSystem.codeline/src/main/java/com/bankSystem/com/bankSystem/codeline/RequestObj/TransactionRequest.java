@@ -24,6 +24,8 @@ public class TransactionRequest {
 
     Integer creditCardId;
 
+    Integer accountNumber;
+
     public static Transaction convert(TransactionRequest request) throws ParseException{
         Transaction transaction = new Transaction();
         transaction.setAmount(request.getAmount());

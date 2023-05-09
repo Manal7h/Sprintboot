@@ -19,4 +19,7 @@ public interface TransactionRepositories extends JpaRepository<Transaction,Integ
 
     @Query("SELECT a from Transaction a where a.id= :transactionId")
     Transaction getTransactionById(@Param("transactionId") Integer id);
+
+
+
 }

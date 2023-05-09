@@ -1,9 +1,7 @@
 package com.bankSystem.com.bankSystem.codeline.Services;
 
-import com.bankSystem.com.bankSystem.codeline.Models.CreditCard;
-import com.bankSystem.com.bankSystem.codeline.Models.Customer;
-import com.bankSystem.com.bankSystem.codeline.Models.Loan;
-import com.bankSystem.com.bankSystem.codeline.Models.Transaction;
+import com.bankSystem.com.bankSystem.codeline.Models.*;
+import com.bankSystem.com.bankSystem.codeline.Repositories.AccountRepositories;
 import com.bankSystem.com.bankSystem.codeline.Repositories.CreditCardRepositories;
 import com.bankSystem.com.bankSystem.codeline.Repositories.CustomerRepositories;
 import com.bankSystem.com.bankSystem.codeline.Repositories.TransactionRepositories;
@@ -30,6 +28,9 @@ public class TransactionServices {
     @Autowired
     CreditCardRepositories creditCardRepositories;
 
+    @Autowired
+    AccountRepositories accountRepositories;
+
 //    public void createTransaction(TransactionRequest transactionRequest) throws ParseException {
 //        Transaction transaction = new Transaction();
 //        transaction.setAmount(transactionRequest.getAmount());
@@ -46,7 +47,7 @@ public class TransactionServices {
 //        transactionRepositories.save(transaction);
 //    }
 
-    public void createTransaction(TransactionRequest transactionRequest) throws ParseException {
+    public void createTransaction3(TransactionRequest transactionRequest) throws ParseException {
         Transaction transaction = TransactionRequest.convert(transactionRequest);
         CreditCard creditCard = creditCardRepositories.findById(transactionRequest.getCreditCardId()).get();
         transaction.setCreditCard(creditCard);
@@ -71,6 +72,25 @@ public class TransactionServices {
         Transaction transaction = transactionRepositories.getTransactionById(transactionRequest.getId());
         transaction.setActive(Boolean.FALSE);
         transactionRepositories.save(transaction);
+
+    }
+
+
+    //Account Entity: 3
+    public String createTransaction(TransactionRequest transactionRequest){
+        Transaction transaction=new Transaction();
+        transaction.setAmount(transactionRequest.getAmount());
+        Integer id = accountRepositories.getAccountByAccountNumber(transactionRequest.getAccountNumber());
+        Account account=accountRepositories.findById(id).get();
+        transaction.setActive(account.getActive()); // if account is active then transaction is active
+        transaction.setAccount(account);
+        Double transactionAmount= transactionRequest.getAmount();
+        Double accountBalance=account.getBalance();
+        Double newBalance=accountBalance-transactionAmount;
+        account.setBalance(newBalance);
+        accountRepositories.save(account);
+        transactionRepositories.save(transaction);
+        return "Transaction done successfully";
 
     }
 
