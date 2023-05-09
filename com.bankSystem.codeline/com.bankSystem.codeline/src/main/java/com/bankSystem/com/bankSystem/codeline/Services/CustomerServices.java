@@ -4,6 +4,7 @@ import com.bankSystem.com.bankSystem.codeline.Models.CreditCard;
 import com.bankSystem.com.bankSystem.codeline.Models.Customer;
 import com.bankSystem.com.bankSystem.codeline.Models.Loan;
 import com.bankSystem.com.bankSystem.codeline.Repositories.CustomerRepositories;
+import com.bankSystem.com.bankSystem.codeline.RequestObj.CreditCardRequest;
 import com.bankSystem.com.bankSystem.codeline.RequestObj.CustomerRequest;
 import com.bankSystem.com.bankSystem.codeline.RequestObj.LoanRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,13 @@ public class CustomerServices {
 
     public List<Customer> getAllCustomer() {
         return customerRepositories.getAllCustomer();
+    }
+
+    public void deleteCustomerById(CustomerRequest customerRequest) {
+        Customer customer = customerRepositories.getCustomerById(customerRequest.getId());
+        customer.setActive(Boolean.FALSE);
+        customerRepositories.save(customer);
+
     }
 }
 
