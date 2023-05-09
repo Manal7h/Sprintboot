@@ -17,6 +17,12 @@ public interface AccountRepositories extends JpaRepository<Account,Integer> {
         //a is alias which is static
     List<Account> getAllAccount(); // getting all the Account from the Account list
 
+
     @Query("SELECT a from Account a where a.id= :accountId")
     Account getAccountById(@Param("accountId") Integer id);
+
+
+    //Account Entity: 2
+    @Query(value = "Select a balance From Account a WHERE a.id = :id")
+    Double getBalanceForAccount(@Param("id") Integer id);
 }

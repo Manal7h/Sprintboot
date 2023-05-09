@@ -68,5 +68,12 @@ public class AccountServices {
         accountRepositories.save(account);
 
     }
+
+    //Account Entity: 2
+
+    public double getBalanceForAccount(Integer id) {
+        return accountRepositories.getBalanceForAccount(id);
+
+    }
 }
 
