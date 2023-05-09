@@ -30,6 +30,7 @@ public class TransactionRequest {
         Transaction transaction = new Transaction();
         transaction.setAmount(request.getAmount());
 
+
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date convertedDateFromStringTODateFormat = dateFormat.parse(request.getTransactionDate());
         transaction.setTransactionDate(convertedDateFromStringTODateFormat);

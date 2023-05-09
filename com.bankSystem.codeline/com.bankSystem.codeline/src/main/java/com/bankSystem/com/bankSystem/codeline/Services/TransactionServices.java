@@ -51,6 +51,9 @@ public class TransactionServices {
         Transaction transaction = TransactionRequest.convert(transactionRequest);
         CreditCard creditCard = creditCardRepositories.findById(transactionRequest.getCreditCardId()).get();
         transaction.setCreditCard(creditCard);
+
+        Account account = accountRepositories.findById(transactionRequest.getAccountNumber()).get();
+        transaction.setAccount(account);
         transactionRepositories.save(transaction);
 
     }

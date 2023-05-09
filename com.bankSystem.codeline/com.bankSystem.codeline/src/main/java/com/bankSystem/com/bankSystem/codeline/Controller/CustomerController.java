@@ -5,6 +5,7 @@ import com.bankSystem.com.bankSystem.codeline.Models.Customer;
 import com.bankSystem.com.bankSystem.codeline.Repositories.CustomerRepositories;
 import com.bankSystem.com.bankSystem.codeline.RequestObj.CreditCardRequest;
 import com.bankSystem.com.bankSystem.codeline.RequestObj.CustomerRequest;
+import com.bankSystem.com.bankSystem.codeline.RequestObj.LoanRequest;
 import com.bankSystem.com.bankSystem.codeline.Services.CustomerServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,15 @@ public class CustomerController {
     @Autowired
     CustomerServices customerServices;
 
+    @RequestMapping(value = "/createCustomer" , method = RequestMethod.GET)
+    public String createCustomer(CustomerRequest customerRequest){
+        try {
+            customerRequest.createCustomer(customerRequest);
+        } catch (Exception e) {
+            return "Failed Delete";
+        }
+        return "Delete Successfully";
+    }
 
     @RequestMapping(value = "/getAll" , method = RequestMethod.GET)
     public List<Customer> getAllCustomer() {

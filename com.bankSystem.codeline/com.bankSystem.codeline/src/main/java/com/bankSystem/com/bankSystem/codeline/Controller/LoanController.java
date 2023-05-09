@@ -4,6 +4,7 @@ import com.bankSystem.com.bankSystem.codeline.Models.Customer;
 import com.bankSystem.com.bankSystem.codeline.Models.Loan;
 import com.bankSystem.com.bankSystem.codeline.RequestObj.CustomerRequest;
 import com.bankSystem.com.bankSystem.codeline.RequestObj.LoanRequest;
+import com.bankSystem.com.bankSystem.codeline.RequestObj.TransactionRequest;
 import com.bankSystem.com.bankSystem.codeline.Services.LoanServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,16 @@ public class LoanController {
 
     @Autowired
     LoanServices loanServices;
+
+    @RequestMapping(value = "/createLoan" , method = RequestMethod.GET)
+    public String createLoan(LoanRequest loanRequest) {
+        try {
+            loanServices.createLoan(loanRequest);
+        } catch (Exception e) {
+            return "Failed Delete";
+        }
+        return "Delete Successfully";
+    }
 
     @RequestMapping(value = "/getAll" , method = RequestMethod.GET)
     public List<Loan> getAllLoan() {
