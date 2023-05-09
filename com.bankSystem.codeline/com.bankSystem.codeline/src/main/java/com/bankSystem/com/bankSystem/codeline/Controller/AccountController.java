@@ -1,6 +1,8 @@
 package com.bankSystem.com.bankSystem.codeline.Controller;
 
 import com.bankSystem.com.bankSystem.codeline.Models.Account;
+import com.bankSystem.com.bankSystem.codeline.RequestObj.AccountRequest;
+import com.bankSystem.com.bankSystem.codeline.RequestObj.CreditCardRequest;
 import com.bankSystem.com.bankSystem.codeline.Services.AccountServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +31,15 @@ public class AccountController {
 //        }
     }
 
-
+    @RequestMapping(value = "/deleteById", method = RequestMethod.GET)
+    public String deleteAccountById(AccountRequest accountRequest){
+        try {
+            accountServices.deleteAccountById(accountRequest);
+        } catch (Exception e) {
+            return "Failed Delete";
+        }
+        return "Delete Successfully";
+    }
+}
 
 }
