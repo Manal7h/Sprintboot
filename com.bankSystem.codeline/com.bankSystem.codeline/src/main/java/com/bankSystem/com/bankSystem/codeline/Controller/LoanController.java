@@ -7,6 +7,7 @@ import com.bankSystem.com.bankSystem.codeline.RequestObj.LoanRequest;
 import com.bankSystem.com.bankSystem.codeline.RequestObj.TransactionRequest;
 import com.bankSystem.com.bankSystem.codeline.Services.LoanServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +23,7 @@ public class LoanController {
     LoanServices loanServices;
 
     @RequestMapping(value = "/createLoan" , method = RequestMethod.POST)
-    public String createLoan(LoanRequest loanRequest) {
+    public String createLoan(@RequestBody LoanRequest loanRequest) {
         try {
             loanServices.createLoan(loanRequest);
         } catch (Exception e) {

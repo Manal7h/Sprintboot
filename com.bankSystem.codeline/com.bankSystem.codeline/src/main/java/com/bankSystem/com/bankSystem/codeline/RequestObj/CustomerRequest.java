@@ -25,13 +25,9 @@ public class CustomerRequest {
         customer.setCustomerName(request.getCustomerName());
         customer.setCustomerEmail(request.getCustomerEmail());
         customer.setCustomerPhone(request.getCustomerPhone());
-
         customer.setCreatedDate(new Date());
         customer.setActive(Boolean.TRUE);
-
         return customer;
-
-
 
     }
 

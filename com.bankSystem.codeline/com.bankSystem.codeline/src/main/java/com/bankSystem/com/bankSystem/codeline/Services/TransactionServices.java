@@ -74,10 +74,16 @@ public class TransactionServices {
         Account account=accountRepositories.findById(id).get();
         transaction.setActive(account.getActive()); // if account is active then transaction is active
         transaction.setAccount(account);
-        Double transactionAmount= transactionRequest.getAmount();
-        Double accountBalance=account.getBalance();
+
+
+        //A
+        Double transactionAmount= transactionRequest.getAmount();//user transaction account
+        //B
+        Double accountBalance=account.getBalance();//account balance
+        //C
         Double newBalance=accountBalance-transactionAmount;
         account.setBalance(newBalance);
+        //D
         accountRepositories.save(account);
         transactionRepositories.save(transaction);
         return "Transaction done successfully";

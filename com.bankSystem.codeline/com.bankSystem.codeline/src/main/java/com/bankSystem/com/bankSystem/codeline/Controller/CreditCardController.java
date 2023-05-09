@@ -6,10 +6,7 @@ import com.bankSystem.com.bankSystem.codeline.RequestObj.CreditCardRequest;
 import com.bankSystem.com.bankSystem.codeline.RequestObj.CustomerRequest;
 import com.bankSystem.com.bankSystem.codeline.Services.CreditCardServices;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,7 +22,7 @@ public class CreditCardController {
 
 
     @RequestMapping(value = "/createCreditCard" , method = RequestMethod.POST)
-    public String createCreditCard(CreditCardRequest creditCardRequest){
+    public String createCreditCard(@RequestBody CreditCardRequest creditCardRequest){
         try {
             creditCardServices.createCreditCard(creditCardRequest);
         } catch (Exception e) {

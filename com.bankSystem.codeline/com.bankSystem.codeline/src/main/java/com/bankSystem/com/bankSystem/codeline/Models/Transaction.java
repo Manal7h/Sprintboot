@@ -14,7 +14,7 @@ import java.util.Date;
 @Data
 
 @Entity
-
+@Table(name = "account_Transaction")
 public class Transaction extends BaseEntity{
 
     @Id

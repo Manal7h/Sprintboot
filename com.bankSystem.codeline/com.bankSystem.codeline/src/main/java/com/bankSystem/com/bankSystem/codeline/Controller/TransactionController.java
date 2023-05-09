@@ -22,7 +22,7 @@ public class TransactionController {
     TransactionServices transactionServices;
 
     @RequestMapping(value = "/createTransaction" , method = RequestMethod.POST)
-    public String createTransaction3(TransactionRequest transactionRequest) {
+    public String createTransaction3(@RequestBody TransactionRequest transactionRequest) {
         try {
             transactionServices.createTransaction3(transactionRequest);
         } catch (Exception e) {
