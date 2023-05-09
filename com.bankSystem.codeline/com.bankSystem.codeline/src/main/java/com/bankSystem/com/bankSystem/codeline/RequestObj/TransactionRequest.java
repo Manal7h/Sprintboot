@@ -20,7 +20,10 @@ public class TransactionRequest {
 
     Integer id;
     Double amount;
-    String transactionDate;
+
+//    String transactionDate;
+    Date transactionDate;
+
 
 //    Integer creditCardId;
 
@@ -29,11 +32,14 @@ public class TransactionRequest {
     public static Transaction convert(TransactionRequest request) throws ParseException{
         Transaction transaction = new Transaction();
         transaction.setAmount(request.getAmount());
+//
+//
+//        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//        Date convertedDateFromStringTODateFormat = dateFormat.parse(request.getTransactionDate());
+//        transaction.setTransactionDate(convertedDateFromStringTODateFormat);
 
 
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date convertedDateFromStringTODateFormat = dateFormat.parse(request.getTransactionDate());
-        transaction.setTransactionDate(convertedDateFromStringTODateFormat);
+
 
         transaction.setTransactionDate(new Date());
         transaction.setActive(Boolean.TRUE);

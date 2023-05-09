@@ -44,11 +44,10 @@ public class TransactionServices {
 
     public void upDateTransaction(TransactionRequest transactionRequest) throws ParseException {
         Transaction transaction = TransactionRequest.convert(transactionRequest);
-//        CreditCard creditCard = creditCardRepositories.findById(transactionRequest.getCreditCardId()).get();
-//        transaction.setCreditCard(creditCard);
+//      CreditCard creditCard = creditCardRepositories.findById(transactionRequest.getCreditCardId()).get();
+//      transaction.setCreditCard(creditCard);
         Account account = accountRepositories.findById(transactionRequest.getAccountNumber()).get();
         transaction.setAccount(account);
-
         transaction.setUpdatedDate(new Date());
         transactionRepositories.save(transaction);
 

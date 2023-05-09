@@ -21,7 +21,7 @@ public class TransactionController {
     @Autowired
     TransactionServices transactionServices;
 
-    @RequestMapping(value = "/createTransaction" , method = RequestMethod.GET)
+    @RequestMapping(value = "/createTransaction" , method = RequestMethod.POST)
     public String createTransaction3(TransactionRequest transactionRequest) {
         try {
             transactionServices.createTransaction3(transactionRequest);
