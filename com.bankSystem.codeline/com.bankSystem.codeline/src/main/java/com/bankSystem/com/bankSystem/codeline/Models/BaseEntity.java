@@ -39,4 +39,6 @@ public class BaseEntity {
     public void setActive(Boolean active) {
         isActive = active;
     }
+
+
 }
